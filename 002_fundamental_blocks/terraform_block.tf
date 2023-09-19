@@ -9,8 +9,23 @@ We use operators with the versions
 Only 1st and 4th is commonly used
 */
 
+# Note: terraform init -upgrade is used to switch provider versions after change the version number later on.
+
 terraform {
   #CLI Locking
   required_version = "~> 1.5.0"
+
+  #required providers - multiple providers can be required
+  required_providers {
+    aws = {
+        source = "hashicorp/aws"
+        version = "~> 5.0"
+    }
+
+    random = {
+        source = "hashicorp/random"
+        version = "~> 3.0"
+    }
+  }
 }
 

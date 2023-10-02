@@ -26,17 +26,26 @@ variable "ec2_instance_type" {
 # Set environment variable
 /*
 export TF_VAR_ec2_instance_count=1
-or Set-Item -Path env:TF_VAR_ec2_instance_count -Value 1
 export TF_VAR_ec2_instance_type=t2.micro
-or Set-Item -Path env:TF_VAR_ec2_instance_type -Value "t2.micro"
-echo $TF_VAR_ec2_instance_count, $TF_VAR_ec2_instance_type
+
+#### - If using powershell use the below commands - ####
+Set-Item -Path Env:TF_VAR_ec2_instance_count -Value 1
+Set-Item -Path Env:TF_VAR_ec2_instance_type -Value "t2.micro"
+
+echo $TF_VAR_ec2_instance_count, $TF_VAR_ec2_instance_type (Checking the env variables in bash)
+Get-Item -Path Env:\TF* (Checking env variables in powershell)
 */
 
 # Run terraform general workflow commands init --> validate --> fmt --> plan --> apply --> destroy
 
-# Unset environment variables
+# Unset environment variables 
 /*
+In Bash------------
 unset TF_VAR_ec2_instance_count
 unset TF_VAR_ec2_instance_type
 echo $TF_VAR_ec2_instance_count, $TF_VAR_ec2_instance_type
+
+In Powershell----------------------------
+Remove-Item -Path Env:\TF* -Verbose
+Get-Item -Path Env:\TF*
 */

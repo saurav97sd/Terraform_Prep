@@ -1,0 +1,20 @@
+----------------------------------First Command--------------------------------
+1. "Terraform Show" command
+It is used to provide human readable output form state or plan file.
+Example to check -
+terraform init
+terraform plan -out "planfile"
+terraform show "planfile" / terraform show -json "planfile"
+terraform apply "planfile"
+
+Note:
+Just "terraform show" command will automatically will read the state file if present.
+
+---------------------------------Second Command--------------------------------
+2. "Terraform Refresh" command
+It is used to reconcile the state terraform knows about (via it state file) with the real world infrastructure
+Basically it "updates the local state file" against the real resource in cloud (changes made manually)
+Command order of execution -
+terraform refresh ---> terraform plan ---> Make a decision ---> terraform apply
+
+---------------------------------Third Command---------------------------------
